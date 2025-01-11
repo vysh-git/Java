@@ -1,0 +1,50 @@
+// Source code is decompiled from a .class file using FernFlower decompiler.
+class HourlyEmployee extends Employee {
+   private double hourlyRate;
+   private int hoursWorked;
+
+   public HourlyEmployee(int var1, String var2, String var3, double var4, int var6) {
+      super(var1, var2, var3);
+      this.setHourlyRate(var4);
+      this.setHoursWorked(var6);
+   }
+
+   public double getHourlyRate() {
+      return this.hourlyRate;
+   }
+
+   public void setHourlyRate(double var1) {
+      if (var1 < 0.0) {
+         throw new IllegalArgumentException("Hourly rate must be non-negative.");
+      } else {
+         this.hourlyRate = var1;
+      }
+   }
+
+   public int getHoursWorked() {
+      return this.hoursWorked;
+   }
+
+   public void setHoursWorked(int var1) {
+      if (var1 < 0) {
+         throw new IllegalArgumentException("Hours worked must be non-negative.");
+      } else {
+         this.hoursWorked = var1;
+      }
+   }
+
+   public double calculateWeeklySalary() {
+      return this.hourlyRate * (double)this.hoursWorked;
+   }
+
+   public void displayEmployeeInfo() {
+      super.displayEmployeeInfo();
+      System.out.println("Hourly Rate: " + this.hourlyRate);
+      System.out.println("Hours Worked: " + this.hoursWorked);
+      System.out.println("Weekly Salary: " + this.calculateWeeklySalary());
+   }
+
+   public double calculateBonus() {
+      return this.calculateWeeklySalary() * 0.05;
+   }
+}
